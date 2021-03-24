@@ -39,8 +39,21 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+    this.eat = function(someFood){
+      if(this.stomach.length < 10){
+        this.stomach.push(someFood);
+      }
+    };
+    this.poop = function(){
+      for(let i = 0; i < this.stomach.length; i++){
+        return this.stomach.pop();
+      });
+    };
+    this.toString = () => { return `${this.name}, ${this.age}`}
   }
  
  
@@ -83,10 +96,10 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window Binding = if the 'this' is not assigned it will return the window ot global object
+    2. Implicit Binding = is when you use the this.key inside an object and the this refers to the object it is inside
+    3. Explicit Binding = is when you tell the function what "this" is equal to using .call, .apply, or .bind
+    4. New Binding = when you assign a new keyword for the "this"
   */
   
   
